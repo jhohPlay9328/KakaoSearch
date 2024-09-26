@@ -1,0 +1,62 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Search" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+
+        <item name="tabStyle">@style/CommonTabLayoutStyle2</item>
+
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="tabSelectedTextAppearance" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="tabUnSelectedTextAppearance" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="CommonTabLayoutStyle2" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextColor">@color/COLOR_888888</item>
+        <item name="tabTextAppearance">@style/tabUnSelectedTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/COLOR_222222</item>
+        <item name="tabSelectedTextAppearance">@style/tabSelectedTextAppearance</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="tabIndicatorColor">@color/COLOR_222222</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">start</item>
+    </style>
+
+    <style name="ShapeAppearance.radius14" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">14dp</item>
+        <item name="cornerSizeTopRight">14dp</item>
+        <item name="cornerSizeBottomLeft">14dp</item>
+        <item name="cornerSizeBottomRight">14dp</item>
+    </style>
+
+    <style name="toolbar_title_style">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

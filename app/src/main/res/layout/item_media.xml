@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.theenm.android.popcaster.common.constants.ApiConst" />
+        <import type="com.jhoh.play.app.common.utils.SearchUtil" />
+
+        <variable
+            name="item"
+            type="com.jhoh.play.domain.model.MediaModel.Document" />
+
+        <variable
+            name="interactionListener"
+            type="com.jhoh.play.app.common.listener.InteractionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> interactionListener.onClick(view, item)}" >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_thumbnail"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@color/COLOR_F7F7F7"
+            app:shapeAppearance="@style/ShapeAppearance.radius14"
+            app:strokeColor="@color/COLOR_E6E6E6"
+            app:strokeWidth="1dp"
+            app:loadImage="@{item.thumbnail}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="8dp"
+            android:src="@{item.isFavorite ? @drawable/icon_like_on : @drawable/icon_like_off}"
+            android:onClick="@{(view) -> interactionListener.onClick(view, item)}"
+            app:layout_constraintTop_toTopOf="@id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/iv_thumbnail"
+            tools:src="@drawable/icon_like_off" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_type"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:src="@{item.mediaType == ApiConst.Param.MEDIA_TYPE_IMAGE ? @drawable/icon_image : @drawable/icon_video}"
+            app:layout_constraintStart_toEndOf="@id/iv_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/tv_title"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{item.title}"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/iv_type"
+            app:layout_constraintTop_toTopOf="@id/iv_thumbnail"
+            app:layout_constraintEnd_toStartOf="@id/tv_collection"
+            app:layout_constraintBottom_toTopOf="@id/tv_doc_url" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{item.category}"
+            android:textSize="14sp"
+            android:textColor="@color/COLOR_465179"
+            android:visibility="@{item.category.equals(&quot;&quot;)? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@id/tv_title"
+            app:layout_constraintTop_toTopOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_doc_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@{item.contents}"
+            android:textSize="13sp"
+            android:textColor="@color/COLOR_444444"
+            app:layout_constraintStart_toStartOf="@id/iv_type"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_date" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{SearchUtil.INSTANCE.dateFormatConvert(item.time)}"
+            android:textSize="12sp"
+            android:textColor="@color/COLOR_888888"
+            app:layout_constraintStart_toStartOf="@id/iv_type"
+            app:layout_constraintTop_toBottomOf="@id/tv_doc_url"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

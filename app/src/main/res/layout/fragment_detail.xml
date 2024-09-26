@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.jhoh.play.app.ui.detail.DetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground" >
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp" >
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/icon_back"
+                app:title="@{viewModel.mediaModel.title}"
+                app:titleTextAppearance="@style/toolbar_title_style"
+                app:titleCentered="true"
+                app:menu="@menu/menu_detatil"
+                app:layout_scrollFlags="noScroll"
+                app:contentInsetLeft="0dp"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:loadImage="@{viewModel.mediaModel.thumbnail}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryVariant">@color/white</color>
+    <color name="colorOnPrimary">@color/black</color>
+    <color name="colorSecondary">@color/COLOR_222222</color>
+    <color name="colorSecondaryVariant">@color/white</color>
+    <color name="colorOnSecondary">@color/white</color>
+    <color name="colorSurface">@color/white</color>
+    <color name="colorOnSurface">@color/black</color>
+    <color name="colorBackground">@color/white</color>
+    <color name="colorBackgroundSecondary">@color/COLOR_F7F7F7</color>
+    <color name="colorOnBackground">@color/black</color>
+    <color name="colorError">@color/red</color>
+    <color name="colorOnError">@color/white</color>
+    <color name="colorControlHighlight">@color/COLOR_F7F7F7</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="COLOR_222222">#222222</color>
+    <color name="COLOR_444444">#444444</color>
+    <color name="COLOR_465179">#465179</color>
+    <color name="COLOR_888888">#888888</color>
+    <color name="COLOR_DDDDDD">#DDDDDD</color>
+    <color name="COLOR_E6E6E6">#E6E6E6</color>
+    <color name="COLOR_F7F7F7">#F7F7F7</color>
+</resources>
